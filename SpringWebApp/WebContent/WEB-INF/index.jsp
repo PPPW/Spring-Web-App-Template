@@ -5,9 +5,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Spring Web App Template</title>
 </head>
-<body>
+<body> 
 	<center>
-		<h2>${msg}</h2>
+		<h2>Hello World</h2>
+		<h3>
+			<a href="login">Click Here to Login</a>
+		</h3>
 	</center>
 </body>
 </html>
