@@ -7,8 +7,10 @@
 <title>Spring Login Form</title>
 </head>
 <body>
-    <form:form name="submitForm" method="POST">
+	<!-- submitted information will be accessed by "loginBean" object -->
+    <form:form name="submitForm" method="POST" modelAttribute="loginBean">
         <div align="center">
+        	<div style="color: blue">${msg}</div>
             <table>
                 <tr>
                     <td>User Name</td>

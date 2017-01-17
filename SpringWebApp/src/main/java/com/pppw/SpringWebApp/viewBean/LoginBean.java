@@ -1,7 +1,7 @@
-package com.pppw.SpringWebApp.controller;
+package com.pppw.SpringWebApp.viewBean;
 
 public class LoginBean {
- 
+	// the variables' name must be consistent with the login.jsp
     private String userName;
     private String password;
  
