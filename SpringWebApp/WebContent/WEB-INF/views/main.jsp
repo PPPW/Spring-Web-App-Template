@@ -19,6 +19,20 @@
 	    		<a href="/logout">Log out</a>
 	    	</th>
 		</table>
+		</br>
+		</br>
+		<table border="1">
+			<th>ID</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Address</th>
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Type</td>
+				<td>Address</td>
+			</tr>
+        </table>
 	</center>
 </body>
 </html>

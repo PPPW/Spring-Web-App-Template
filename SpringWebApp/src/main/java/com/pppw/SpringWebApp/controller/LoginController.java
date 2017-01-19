@@ -26,10 +26,11 @@ public class LoginController {
  
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean) {
-        if (loginBean != null && loginBean.getUserName() != null & loginBean.getPassword() != null) {
+        if (loginBean != null && loginBean.getUserName() != null && loginBean.getPassword() != null) {
         	if (userDao.isValidUser(loginBean.getUserName(), loginBean.getPassword())) {
-                model.addAttribute("msg", "welcome " + loginBean.getUserName());
-                model.addAttribute("userGroup", UserGroup.Admin);
+                model.addAttribute("msg", "welcome " 
+                		+ loginBean.getUserName() 
+                		+ "! You are logged in as " + userDao.getUserGroup(loginBean.getUserName()));
                 return "main";
             } else {
                 model.addAttribute("error", "Invalid credentials");

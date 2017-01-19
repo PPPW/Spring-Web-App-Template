@@ -23,11 +23,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	</bean>
 	
 	<bean id="userDao" class="com.pppw.SpringWebApp.dao.UserDaoJDBC" />
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost:3306/userdb"/>
-		<property name="username" value="root"/>
-		<property name="password" value="r@0t"/>
+	
+	<bean id="userdataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.sqlite.JDBC"/>
+		<property name="url" value="jdbc:sqlite:userdb.sqlite"/>
+		<property name="username" value=""/>
+		<property name="password" value=""/>
 	</bean>
 	
 	<mvc:annotation-driven/>
