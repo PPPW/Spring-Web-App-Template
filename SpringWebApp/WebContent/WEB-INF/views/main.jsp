@@ -9,28 +9,29 @@
 <body>
 	<center>
 		<h2>${msg}</h2>									       
-        <table border="1">
+        <table border="1">	    	
+    		<c:if test="${userGroup == 'Admin'}">
+				<th><a href="users">Manage users</a></th>			
+			</c:if>	    	
 	    	<th>
-	    		<c:if test="${userGroup == 'Admin'}">
-					<a href="/users">Manage users</a>			
-				</c:if>
-	    	</th>
-	    	<th>
-	    		<a href="/logout">Log out</a>
+	    		<a href="logout">Log out</a>
 	    	</th>
 		</table>
 		</br>
+		<h3><a href="/newRestaurant">New Restaurant</a></h3>
 		</br>
 		<table border="1">
 			<th>ID</th>
 			<th>Name</th>
 			<th>Type</th>
 			<th>Address</th>
+			<th>Action</th>
 			<tr>
-				<td>ID</td>
-				<td>Name</td>
-				<td>Type</td>
-				<td>Address</td>
+				<td>1</td>
+				<td>KFC</td>
+				<td>fast food</td>
+				<td>everywhere</td>
+				<td>Remove</td>
 			</tr>
         </table>
 	</center>

@@ -6,10 +6,11 @@ import com.pppw.SpringWebApp.model.Restaurant;
 
 public interface RestaurantDao {
     
-	public Restaurant get(int restaurantId);
+	public Restaurant get(int ID);
 	public List<Restaurant> getAll();
 	
+	public void insert(Restaurant restaurant);
     public void update(Restaurant restaurant);     
-    public void delete(int restaurantId);
+    public void delete(int ID);
 
 }

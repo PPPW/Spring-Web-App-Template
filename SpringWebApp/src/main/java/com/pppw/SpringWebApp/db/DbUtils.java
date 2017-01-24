@@ -33,7 +33,12 @@ public class DbUtils {
 			statement.executeUpdate(
 					"INSERT INTO USER " +
 					"(USERNAME, PASSWORD, USERGROUP) " +
-					"VALUES " + "('pppw', 'pppw', 1)"
+					"VALUES " + "('pppw', 'pppw', 0)"
+					);
+			statement.executeUpdate(
+					"INSERT INTO USER " +
+					"(USERNAME, PASSWORD, USERGROUP) " +
+					"VALUES " + "('guest', 'guest', 1)"
 					);
 			statement.close();
 			connection.close();

@@ -1,9 +1,22 @@
 package com.pppw.SpringWebApp.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "RESTAURANT")
 public class Restaurant {
+	@Column(name = "ID")
 	private int ID;	
+	
+	@Column(name = "NAME")
 	private String name;
+	
+	@Column(name = "TYPE")
 	private String type;
+	
+	@Column(name = "ADDRESS")
 	private String address;
 	
 	public Restaurant() {}
@@ -16,8 +29,8 @@ public class Restaurant {
 	public int getID() {
 		return ID;
 	}
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 	public String getName() {
 		return name;
