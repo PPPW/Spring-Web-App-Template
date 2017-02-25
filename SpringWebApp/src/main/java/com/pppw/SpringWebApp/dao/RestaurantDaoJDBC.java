@@ -16,9 +16,12 @@ public class RestaurantDaoJDBC implements RestaurantDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public RestaurantDaoJDBC(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource);
+	public RestaurantDaoJDBC(DataSource userDataSource) {
+        jdbcTemplate = new JdbcTemplate(userDataSource);
     }
+	//public RestaurantDaoJDBC(DataSource restaurantDataSource) {
+    //    jdbcTemplate = new JdbcTemplate(restaurantDataSource);
+    //}
 	
 	public Restaurant get(int ID) {
 		String sql = "SELECT * FROM RESTAURANT WHERE ID = ?";
@@ -41,7 +44,7 @@ public class RestaurantDaoJDBC implements RestaurantDao {
 	public List<Restaurant> getAll() {
 		String sql = "SELECT * FROM RESTAURANT";
 		
-		List<Restaurant> restaurant = jdbcTemplate.query(
+		List<Restaurant> restaurantList = jdbcTemplate.query(
 				sql, 				
 				new RowMapper<Restaurant>() {
 				public Restaurant mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -52,7 +55,7 @@ public class RestaurantDaoJDBC implements RestaurantDao {
 		    		return restaurant;
 		    		}
 				});
-		return restaurant;
+		return restaurantList;
 	}
 
 	public void insert(Restaurant restaurant) {

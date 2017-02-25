@@ -14,13 +14,16 @@ import org.springframework.stereotype.Component;
 public class DbUtils {
 
 	@Autowired
-	private DataSource userdataSource;
+	private DataSource userDataSource;
+	
+	@Autowired
+	private DataSource restaurantDataSource;
 
 	@PostConstruct
 	public void initialize(){
 		try {
-			// initialize the user info database
-			Connection connection = userdataSource.getConnection();
+			// initialize the user info database			
+			Connection connection = userDataSource.getConnection();
 			Statement statement = connection.createStatement();
 			statement.execute("DROP TABLE IF EXISTS USER");
 			statement.executeUpdate(
@@ -40,26 +43,28 @@ public class DbUtils {
 					"(USERNAME, PASSWORD, USERGROUP) " +
 					"VALUES " + "('guest', 'guest', 1)"
 					);
-			statement.close();
-			connection.close();
+			//statement.close();
+			//connection.close();
 			
-			/*Connection connection = dataSource.getConnection();
-			Statement statement = connection.createStatement();
+			// add another database then not works			
+			//connection = restaurantDataSource.getConnection();
+			//connection = java.sql.DriverManager.getConnection("jdbc:sqlite:restaurantdb.sqlite");
+			//statement = connection.createStatement();
 			statement.execute("DROP TABLE IF EXISTS RESTAURANT");
 			statement.executeUpdate(
 					"CREATE TABLE RESTAURANT(" +
-							"ID INTEGER Primary key, " +
-							"NAME varchar(30) not null, " +
-							"TYPE varchar(30) not null), " + 
-							"ADDRESS varchar(30) not null)"
+					"ID INTEGER Primary key, " +
+					"NAME varchar(30) not null, " +
+					"TYPE varchar(30) not null, " + 
+					"ADDRESS varchar(30) not null)"
 					);
 			statement.executeUpdate(
 					"INSERT INTO RESTAURANT " +
-							"(NAME, TYPE, ADDRESS) " +
-							"VALUES " + "('KFC', 'fast food', 'everywhere')"
+					"(NAME, TYPE, ADDRESS) " +
+					"VALUES " + "('KFC', 'fast food', 'everywhere')"
 					);
 			statement.close();
-			connection.close();*/
+			connection.close();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

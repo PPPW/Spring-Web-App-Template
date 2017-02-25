@@ -15,8 +15,8 @@ public class UserDaoJDBC implements UserDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public UserDaoJDBC(DataSource userdataSource) {
-        jdbcTemplate = new JdbcTemplate(userdataSource);
+	public UserDaoJDBC(DataSource userDataSource) {
+        jdbcTemplate = new JdbcTemplate(userDataSource);
     }
 	
 	public boolean isValidUser(String username, String password) {				

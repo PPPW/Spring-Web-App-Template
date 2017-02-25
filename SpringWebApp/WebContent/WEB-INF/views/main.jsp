@@ -18,22 +18,9 @@
 	    	</th>
 		</table>
 		</br>
-		<h3><a href="/newRestaurant">New Restaurant</a></h3>
-		</br>
-		<table border="1">
-			<th>ID</th>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Address</th>
-			<th>Action</th>
-			<tr>
-				<td>1</td>
-				<td>KFC</td>
-				<td>fast food</td>
-				<td>everywhere</td>
-				<td>Remove</td>
-			</tr>
-        </table>
+		<h3><a href="restaurantList">View Restaurants</a></h3>
+		</br>				
+         
 	</center>
 </body>
 </html>

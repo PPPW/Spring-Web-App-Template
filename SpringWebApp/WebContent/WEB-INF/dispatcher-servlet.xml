@@ -24,8 +24,18 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	
 	<bean id="userDao" class="com.pppw.SpringWebApp.dao.UserDaoJDBC" />
 	
-	<bean id="userdataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="userDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.sqlite.JDBC"/>
+		<property name="url" value="jdbc:sqlite:userdb.sqlite"/>
+		<property name="username" value=""/>
+		<property name="password" value=""/>
+	</bean>
+	
+	<bean id="restaurantDao" class="com.pppw.SpringWebApp.dao.RestaurantDaoJDBC" />
+	
+	<bean id="restaurantDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.sqlite.JDBC"/>
+		<!-- <property name="url" value="jdbc:sqlite:restaurantdb.sqlite"/> -->
 		<property name="url" value="jdbc:sqlite:userdb.sqlite"/>
 		<property name="username" value=""/>
 		<property name="password" value=""/>
