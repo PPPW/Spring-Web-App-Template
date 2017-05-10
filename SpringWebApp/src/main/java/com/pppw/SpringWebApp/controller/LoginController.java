@@ -30,10 +30,10 @@ public class LoginController {
         	if (userDao.isValidUser(loginBean.getUserName(), loginBean.getPassword())) {
         		UserGroup userGroup = userDao.getUserGroup(loginBean.getUserName());
         		model.addAttribute("userGroup", userGroup);
-                model.addAttribute("msg", "welcome " 
+                model.addAttribute("msg", "Welcome " 
                 		+ loginBean.getUserName() 
                 		+ "! You are logged in as " + userGroup);
-                return "main";
+                return "redirect:restaurantList";
             } else {
                 model.addAttribute("error", "Invalid credentials");
                 return "login";

@@ -21,7 +21,6 @@ public class RestaurantController {
 	public String listContact(Model model) {
 	    List<Restaurant> allRestaurants = restaurantDao.getAll();
 	    model.addAttribute("allRestaurants", allRestaurants);
-	    //model.setViewName("home");
 	 
 	    return "restaurantList";
 	}
