@@ -4,7 +4,7 @@
     <h1>New/Edit Restaurant</h1>
     <form:form action="editRestaurant" method="post" modelAttribute="restaurant">
     <table>
-        <form:hidden path="id"/>
+        <form:hidden path="ID"/>
         <tr>
             <td>Name:</td>
             <td><form:input path="name" /></td>

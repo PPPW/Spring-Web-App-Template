@@ -63,6 +63,11 @@ public class DbUtils {
 					"(NAME, TYPE, ADDRESS) " +
 					"VALUES " + "('KFC', 'fast food', 'everywhere')"
 					);
+			statement.executeUpdate(
+					"INSERT INTO RESTAURANT " +
+					"(NAME, TYPE, ADDRESS) " +
+					"VALUES " + "('McDonald', 'fast food', 'everywhere')"
+					);
 			statement.close();
 			connection.close();
 		}

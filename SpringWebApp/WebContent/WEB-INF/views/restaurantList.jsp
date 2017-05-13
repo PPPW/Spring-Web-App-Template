@@ -1,7 +1,7 @@
 <%@ include file="header.jsp" %> 
  
 <center>
-	<h2><%= request.getParameter("msg") %></h2>									       
+	<h2>${ msg }</h2>									       
        <table border="1">	    	
    		<c:if test="${userGroup == 'Admin'}">
 			<th><a href="users">Manage users</a></th>			
@@ -11,7 +11,7 @@
     	</th>
 	</table>
 	</br>
-	<h3><a href="/newRestaurant">New Restaurant</a></h3>
+	<h3><a href="newRestaurant">New Restaurant</a></h3>
 	</br>
 	
 	<table border="1">
@@ -27,9 +27,9 @@
                <td>${restaurant.type}</td>
                <td>${restaurant.address}</td>
                <td>
-                   <a href="/editRestaurant?id=${restaurant.ID}">Edit</a>
+                   <a href="editRestaurant?id=${restaurant.ID}">Edit</a>
                    &nbsp;&nbsp;&nbsp;&nbsp;
-                   <a href="/deleteRestaurant?id=${restaurant.ID}">Delete</a>
+                   <a href="deleteRestaurant?id=${restaurant.ID}">Delete</a>
                </td>                         
            </tr>
            </c:forEach> 

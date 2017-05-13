@@ -22,6 +22,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		</property>
 	</bean>
 	
+	<!-- dependency injection -->
 	<bean id="userDao" class="com.pppw.SpringWebApp.dao.UserDaoJDBC" />
 	
 	<bean id="userDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

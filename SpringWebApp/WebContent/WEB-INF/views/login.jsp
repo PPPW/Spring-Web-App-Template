@@ -3,7 +3,7 @@
 <!-- submitted information will be accessed by "loginBean" object -->
 <form:form name="submitForm" method="POST" modelAttribute="loginBean">
     <div align="center">
-    	<div style="color: blue">${msg}</div>
+    	<div style="color: blue">Please Enter Your Login Details</div>
         <table>
             <tr>
                 <td>User Name</td>
