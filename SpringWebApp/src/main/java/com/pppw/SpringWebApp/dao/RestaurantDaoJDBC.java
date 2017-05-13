@@ -49,6 +49,7 @@ public class RestaurantDaoJDBC implements RestaurantDao {
 				new RowMapper<Restaurant>() {
 				public Restaurant mapRow(ResultSet rs, int rowNum) throws SQLException {
 					Restaurant restaurant = new Restaurant();
+					restaurant.setID(rs.getInt("ID"));
 					restaurant.setName(rs.getString("name"));
 					restaurant.setType(rs.getString("type"));
 					restaurant.setAddress(rs.getString("address"));
