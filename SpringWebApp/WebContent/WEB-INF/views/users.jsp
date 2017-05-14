@@ -2,7 +2,10 @@
 
 <form:form name="submitForm" method="POST" modelAttribute="User">
     <div align="center">
-    	<div style="color: blue">Please Enter New User Information</div>
+    	<div style="color: blue">
+    		<h3>This is an example for adding new users</h3> 
+    		<h5>(You can add more operations in the same way as the restaurant page.)</h5>  
+    	</div>
         <table>
             <tr>
                 <td>User Name</td>

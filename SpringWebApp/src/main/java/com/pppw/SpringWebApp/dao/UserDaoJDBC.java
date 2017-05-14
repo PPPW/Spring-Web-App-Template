@@ -68,4 +68,11 @@ public class UserDaoJDBC implements UserDao {
 		else
 			return UserGroup.Guest;
     }
+
+	
+    public void insert(User user) {
+    	String sql = "INSERT INTO USER (USERNAME, PASSWORD, USERGROUP) VALUES (?, ?, ?)";
+		jdbcTemplate.update(sql,  
+				user.getUsername(), user.getPassword(), user.getUsergroup());
+	}
 }
