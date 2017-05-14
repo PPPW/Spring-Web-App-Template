@@ -15,7 +15,7 @@ public class DbUtils {
 
 	@Autowired
 	private DataSource userDataSource;
-	
+	// TODO: remove this
 	@Autowired
 	private DataSource restaurantDataSource;
 
@@ -28,8 +28,8 @@ public class DbUtils {
 			statement.execute("DROP TABLE IF EXISTS USER");
 			statement.executeUpdate(
 					"CREATE TABLE USER(" +
-					"ID INTEGER Primary key," +
-					"USERNAME varchar(30) not null, " +
+					//"ID INTEGER Primary key," +
+					"USERNAME varchar(30) Primary key not null, " +
 					"PASSWORD varchar(30) not null, " + 
 					"USERGROUP INTEGER not null)"
 					);
