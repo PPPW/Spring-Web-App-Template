@@ -15,15 +15,17 @@ import com.pppw.SpringWebApp.dao.UserDao;
 import com.pppw.SpringWebApp.dao.UserGroup;
 import com.pppw.SpringWebApp.viewBean.LoginBean;
 
- 
+/**
+ *  You must add "@Controller" annotation for controllers. 
+ */
 @Controller
 public class LoginController {
+	// dependency injection using annotation
 	@Autowired
 	private UserDao userDao;
 	
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String init(Model model) {
-        //model.addAttribute("msg", "Please Enter Your Login Details");
+    public String init(Model model) {        
         return "login";
     }
  
