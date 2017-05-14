@@ -71,5 +71,5 @@ public class RestaurantController {
 	public String deleteRestaurant(@RequestParam("id") int restaurantId) {
 	    restaurantDao.delete(restaurantId);
 	    return "redirect:restaurantList";
-	}
+	}	
 }
