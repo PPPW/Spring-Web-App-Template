@@ -21,9 +21,13 @@ public class RestaurantController {
 	
 	@RequestMapping(value="/restaurantList", method = RequestMethod.GET)
 	public String listRestaurants(Model model) {
+		// TODO
+		model.addAttribute("userName", model.asMap().get("userName"));
+	    model.addAttribute("userGroup", model.asMap().get("userGroup"));
+	    
 	    List<Restaurant> allRestaurants = restaurantDao.getAll();
 	    model.addAttribute("allRestaurants", allRestaurants);
-	 
+	    
 	    return "restaurantList";
 	}
 	
@@ -33,16 +37,16 @@ public class RestaurantController {
 		model.addAttribute("restaurant", newRestaurant);
 	    return "restaurantForm";	    
 	}
-//	@RequestMapping(value = "/newRestaurant", method = RequestMethod.GET)
-//	public ModelAndView newRestaurant(ModelAndView model) {
-//		Restaurant newContact = new Restaurant();
-//		model.addObject("restaurant", newContact);
-//		model.setViewName("restaurantForm");
-//		return model;
-//    }
-	// TODO
+	
+	@RequestMapping(value = "/editRestaurant", method = RequestMethod.GET)
+    public String editRestaurant(Model model, @RequestParam("id") int restaurantId) {
+		Restaurant newRestaurant = restaurantDao.get(restaurantId);
+		model.addAttribute("restaurant", newRestaurant);
+	    return "restaurantForm";
+	}
+	
 	@RequestMapping(value = "/editRestaurant", method = RequestMethod.POST)
-    public String editRestaurant(Model model, @ModelAttribute("restaurant") Restaurant restaurant) {
+    public String submitRestaurantEdit(Model model, @ModelAttribute("restaurant") Restaurant restaurant) {		
 		if (restaurant.getID() > 0) {
 			restaurantDao.update(restaurant);
 		}
@@ -51,7 +55,7 @@ public class RestaurantController {
 		}
 		return "redirect:restaurantList";
 	}		
-	// TODO
+	
 	@RequestMapping(value = "/deleteRestaurant", method = RequestMethod.GET)
 	public String deleteRestaurant(@RequestParam("id") int restaurantId) {
 	    restaurantDao.delete(restaurantId);

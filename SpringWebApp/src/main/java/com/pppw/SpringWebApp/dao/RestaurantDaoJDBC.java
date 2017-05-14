@@ -32,6 +32,7 @@ public class RestaurantDaoJDBC implements RestaurantDao {
 				new RowMapper<Object>() {
 				public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 					Restaurant restaurant = new Restaurant();
+					restaurant.setID(rs.getInt("ID"));
 					restaurant.setName(rs.getString("name"));
 					restaurant.setType(rs.getString("type"));
 					restaurant.setAddress(rs.getString("address"));
@@ -60,15 +61,15 @@ public class RestaurantDaoJDBC implements RestaurantDao {
 	}
 
 	public void insert(Restaurant restaurant) {
-		String sql = "INSERT INTO RESTAURANT (ID, NAME, TYPE, ADDRESS) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO RESTAURANT (NAME, TYPE, ADDRESS) VALUES (?, ?, ?)";
 		jdbcTemplate.update(sql,  
-				restaurant.getID(), restaurant.getName(), restaurant.getType(), restaurant.getAddress());
+				restaurant.getName(), restaurant.getType(), restaurant.getAddress());
 	}
 	
 	public void update(Restaurant restaurant) {
-		String sql = "UPDATE RESTAURANT SET ID=?, NAME=?, TYPE=?, ADDRESS=? WHERE ID=?";
+		String sql = "UPDATE RESTAURANT SET NAME=?, TYPE=?, ADDRESS=? WHERE ID=?";
 		jdbcTemplate.update(sql,  
-				restaurant.getID(), restaurant.getName(), restaurant.getType(), restaurant.getAddress());
+				restaurant.getName(), restaurant.getType(), restaurant.getAddress(), restaurant.getID());
 	}
 
 	public void delete(int ID) {

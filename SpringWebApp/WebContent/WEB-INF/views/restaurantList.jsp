@@ -1,7 +1,7 @@
 <%@ include file="header.jsp" %> 
  
 <center>
-	<h2>${ msg }</h2>									       
+	<h2>Welcome ${ userName } ! You are logged in as ${ userGroup }</h2>									       
        <table border="1">	    	
    		<c:if test="${userGroup == 'Admin'}">
 			<th><a href="users">Manage users</a></th>			
@@ -27,7 +27,7 @@
                <td>${restaurant.type}</td>
                <td>${restaurant.address}</td>
                <td>
-                   <a href="editRestaurant?id=${restaurant.ID}">${restaurant.ID}Edit</a>
+                   <a href="editRestaurant?id=${restaurant.ID}">Edit</a>
                    &nbsp;&nbsp;&nbsp;&nbsp;
                    <a href="deleteRestaurant?id=${restaurant.ID}">Delete</a>
                </td>                         
