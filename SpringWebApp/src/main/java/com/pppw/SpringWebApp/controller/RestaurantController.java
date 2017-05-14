@@ -2,6 +2,8 @@ package com.pppw.SpringWebApp.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,18 +14,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pppw.SpringWebApp.dao.RestaurantDao;
+import com.pppw.SpringWebApp.dao.UserDao;
+import com.pppw.SpringWebApp.dao.UserGroup;
 import com.pppw.SpringWebApp.model.Restaurant;
 
 @Controller
-public class RestaurantController {
+public class RestaurantController {	
+	
+	@Autowired
+	private UserDao userDao;
+	
 	@Autowired
 	private RestaurantDao restaurantDao;
 	
 	@RequestMapping(value="/restaurantList", method = RequestMethod.GET)
-	public String listRestaurants(Model model) {
+	public String listRestaurants(Model model, HttpServletRequest request) {
 		// TODO
-		model.addAttribute("userName", model.asMap().get("userName"));
-	    model.addAttribute("userGroup", model.asMap().get("userGroup"));
+		String userName = (String) request.getSession().getAttribute("userName");
+		UserGroup userGroup = userDao.getUserGroup(userName);
+		
+		model.addAttribute("userName", userName);
+	    model.addAttribute("userGroup", userGroup);
 	    
 	    List<Restaurant> allRestaurants = restaurantDao.getAll();
 	    model.addAttribute("allRestaurants", allRestaurants);

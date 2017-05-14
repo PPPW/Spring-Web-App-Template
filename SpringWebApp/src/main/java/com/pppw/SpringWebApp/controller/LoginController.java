@@ -1,5 +1,7 @@
 package com.pppw.SpringWebApp.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,12 +28,16 @@ public class LoginController {
     }
  
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean, RedirectAttributes redir) {
+    public String submit(Model model, 
+    		@ModelAttribute("loginBean") LoginBean loginBean, 
+    		RedirectAttributes redir,
+    		HttpServletRequest request) {
         if (loginBean != null && loginBean.getUserName() != null && loginBean.getPassword() != null) {
         	if (userDao.isValidUser(loginBean.getUserName(), loginBean.getPassword())) {
-        		UserGroup userGroup = userDao.getUserGroup(loginBean.getUserName());
-        		redir.addFlashAttribute("userGroup", userGroup);
-        		redir.addFlashAttribute("userName", loginBean.getUserName());
+        		//UserGroup userGroup = userDao.getUserGroup(loginBean.getUserName());
+        		//redir.addFlashAttribute("userGroup", userGroup);
+        		//redir.addFlashAttribute("userName", loginBean.getUserName());
+        		request.getSession().setAttribute("userName", loginBean.getUserName());
                 return "redirect:restaurantList";
             } else {
                 model.addAttribute("error", "Invalid credentials");
