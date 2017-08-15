@@ -23,10 +23,7 @@ public class UserController {
     }
 	
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
-    public String submitForm(Model model, @ModelAttribute("User") User user) {     
-		System.out.println(user.getUsername());
-		System.out.println(user.getPassword());
-		System.out.println(user.getUsergroup());
+    public String submitForm(Model model, @ModelAttribute("User") User user) {     		
 		userDao.insert(user);
         return "redirect:restaurantList";
     }
