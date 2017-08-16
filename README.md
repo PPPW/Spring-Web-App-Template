@@ -10,11 +10,19 @@ The purpose is to provide a clean web app with basic functions for beginners to 
 
 This website starts with a login page:
 
+![](./figs/login.png)
+
 Two accounts are set in "": { pppw : pppw } (admin) and  { guest : guest } (guest). After logging in, you can see a list of restaurants: 
+
+![](./figs/main.png)
 
 You can add/edit/delete restaurants. Clicking on adding or editing restaurants will bring you to this page:
 
+![](./figs/manage_restaurant.png)
+
 If you are admin, you can add new users:
+
+![](./figs/manage_user.png)
 
 Not to make beginners more confused, in here, no CSS styles and JavaScript effects are used. 
 
@@ -31,13 +39,13 @@ I believe you don't have a lot of time to go through the documents. Although the
 The structure of the app is:    
 
 +-- src.main.java.com.pppw.SpringWebApp    
-|   +-- (Java code)    
+|&nbsp;&nbsp;&nbsp;&nbsp;+-- (Java code)    
 +-- WebContent    
-|   +-- WEB-INF    
-|   |   +-- dispatcher-servlet.xml    
-|   |   +-- web.xml    
-|   |   +-- views    
-|   |   |   +-- (JSP webpages)    
+|&nbsp;&nbsp;&nbsp;&nbsp;+-- WEB-INF    
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;+-- dispatcher-servlet.xml    
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;+-- web.xml    
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;+-- views    
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;+-- (JSP webpages)    
 +-- pom.xml    
 +-- database.sqlite    
 
